@@ -1,0 +1,30 @@
+target_mol: 'C=C1C(=O)C(OC(=O)c2c(C)cc(O)c(CC=C(C)C)c2O)=C2CC3CC(C)(C(=O)O)CC3C12C'
+gpu: 0
+expansion_topk: 5
+route_topk: 10
+iterations: 10
+mode: 'hybrid'
+
+use_value_fn: False
+value_fn_model_path: './retro_star/saved_models/best_epoch_final_4.pt'
+do_rerank: True
+
+rxn_rule_path: './dataset/rxn_data/rxnid_fp.pkl'
+
+fp_dim: 2048
+beam_size: 20
+# For single building block, set building_block_path to a list of only one molecule
+# building_block_path = ["Nc1ccccc1C(=O)O"]
+buliding_block_path: './dataset/building_block/all_building_block.csv'
+
+one_step_model_path: [
+  './transformer/checkpoints/retro_seed_0.pt',
+  './transformer/checkpoints/retro_seed_1024.pt',
+  './transformer/checkpoints/retro_seed_1234.pt',
+  './transformer/checkpoints/retro_seed_2023.pt'
+  
+]
+
+viz: False
+viz_dir: 'viz/'
+

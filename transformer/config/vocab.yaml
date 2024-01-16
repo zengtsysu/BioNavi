@@ -1,0 +1,21 @@
+# config.yaml
+#
+# ## Where the samples will be written
+save_data: data/example
+# ## Where the vocab(s) will be written
+src_vocab: data/vocab.src
+tgt_vocab: data/vocab.tgt
+# # Prevent overwriting existing files in the folder
+overwrite: False
+
+# # Corpus opts:
+data:
+    corpus_1:
+        path_src: data/train_src_c.txt
+        path_tgt: data/train_tar_c.txt
+    corpus_2:
+        path_src: data/train_src_b.txt
+        path_tgt: data/train_tar_b.txt
+    valid:
+        path_src: data/valid_src.txt
+        path_tgt: data/valid_tar.txt

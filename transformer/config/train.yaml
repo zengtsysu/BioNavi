@@ -1,0 +1,71 @@
+# config.yaml
+#
+# ## Where the samples will be written
+
+# ## Where the vocab(s) will be written
+src_vocab: data/vocab.src
+tgt_vocab: data/vocab.tgt
+# # Prevent overwriting existing files in the folder
+overwrite: False
+
+share_vocab: False
+# # Corpus opts:
+data:
+    #train:
+    corpus_1:
+        path_src: data/train_src_c.txt
+        path_tgt: data/train_tar_c.txt
+        weight: 4
+    corpus_2:
+        path_src: data/train_src_b.txt
+        path_tgt: data/train_tar_b.txt
+        weight: 1
+    valid:
+        path_src: data/valid_src.txt
+        path_tgt: data/valid_tar.txt
+#src_seq_length: 300
+#tgt_seq_length: 300
+
+# General opts
+save_model: checkpoints/retro_seed_2023
+save_checkpoint_steps: 10000
+keep_checkpoint: 30
+train_steps: 300000
+seed: 2023
+
+# Batching
+gpu_ranks: [0]
+max_generator_batches: 32
+batch_type: "tokens"
+batch_size: 4096
+accum_count: [4]
+report_every: 2000
+#world_size: 2
+
+# # Optimization
+optim: "adam"
+learning_rate: 2
+warmup_steps: 8000
+decay_method: "noam"
+adam_beta2: 0.998
+max_grad_norm: 0
+param_init: 0
+param_init_glorot: true
+normalization: "tokens"
+label_smoothing: 0.0
+
+# # Model
+encoder_type: transformer
+decoder_type: transformer
+position_encoding: true
+enc_layers: 4
+dec_layers: 4
+heads: 8
+rnn_size: 256
+word_vec_size: 256
+transformer_ff: 2048
+dropout: [0.1]
+share_embeddings: False
+global_attention: general
+global_attention_function: softmax
+self_attn_type: scaled-dot

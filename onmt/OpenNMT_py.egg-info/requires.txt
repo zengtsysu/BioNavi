@@ -1,0 +1,10 @@
+torch>=1.6.0
+torchtext==0.5.0
+configargparse
+tensorboard>=2.3
+flask
+waitress
+pyyaml
+
+[:platform_system == "Linux" or platform_system == "Darwin"]
+pyonmttok<2,>=1.23
