@@ -1,10 +1,10 @@
-#### Introduction
+### Introduction
 Source code for the paper "Developing BioNavi for hybrid retrosynthesis planning". (Soon to be published in **)
 
 ![bionavi](Image/bionavi.png)
 
-####  Setup
-BioNavi requires anaconda with python 3.7 or later. 
+###  Setup
+BioNavi requires anaconda with Python 3.7 or later. 
 
 You will wish to install BioNavi in a virtual environment to prevent conflicting dependencies.
 
@@ -15,28 +15,28 @@ conda activate bionavi
 sh install.sh
 ```
 
-####  Precursor prediction
+###  Precursor prediction
 We provide the pre-trained ensemble models for precursor prediction, these models can be used to pathway planning.
-You can also train your own models with following steps:
+You can also train your models with the following steps:
 
 ```
 cd transformer
 ```
 
-### preprocess the data
+#### Preprocess the data
 
 ```python
 onmt_build_vocab -config config/vocab.yaml -n_sample -1
 ```
 
-### train the model
+#### Train the model
 
 ```python
 onmt_train -config config/train.yaml
 ```
 Note: Four models were trained with different seeds to obtain the ensemble model. 
 
-### make prediction
+#### Make prediction
 
 ```python
 onmt_translate -src data/test_src.txt -output prediction/test_pred.txt \
@@ -45,7 +45,7 @@ onmt_translate -src data/test_src.txt -output prediction/test_pred.txt \
                             checkpoints/retro_seed_1234.pt checkpoints/retro_seed_2023.pt
 ```
  
-### evaluate the prediction
+#### evaluate the prediction
 
 ```python
 python eval_single.py -targets data/test_tar.txt \
@@ -53,7 +53,7 @@ python eval_single.py -targets data/test_tar.txt \
     -invalid_smiles -beam_size 10
 ```
 
-#### Pathway planning
+### Pathway planning
 Now return to the main directory
 
 ```
@@ -66,15 +66,15 @@ You can set the parameters by ```config/bionavi_conf.yaml```, then run
 python run_bionavi.py
 ```
 
-#### Testing on the test set
+### Testing on the test set
 
-Our work on BioNavi features an evaluation on our test-set. We automated this evaluation by
+Our work on BioNavi features an evaluation on our test set. We automated this evaluation by
 
 ```python
 python run_bionavi_batch.py
 ```
 
-#### Evaluate the pathway prediction
+### Evaluate the pathway prediction
 
 ```python
 python script/eval_pathway.py
