@@ -16,7 +16,7 @@ sh install.sh
 ```
 
 ###  Precursor prediction
-We provide the pre-trained ensemble models for precursor prediction, these models can be used to pathway planning.
+We provide the pre-trained ensemble models for precursor prediction, one needs to first download the [checkpoints](https://doi.org/10.6084/m9.figshare.25118075) and unzip under ```transformer/checkpoints/```.
 You can also train your models with the following steps:
 
 ```
