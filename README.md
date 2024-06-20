@@ -1,5 +1,5 @@
 ### Introduction
-Source code for the paper "Developing BioNavi for hybrid retrosynthesis planning". (Soon to be published in **)
+Source code for the paper "Developing BioNavi for Hybrid Retrosynthesis Planning". (Soon to be published in **)
 
 ![bionavi](Image/bionavi.png)
 
