@@ -1,5 +1,5 @@
 ### Introduction
-Source code for the paper "Developing BioNavi for Hybrid Retrosynthesis Planning". (Soon to be published in **)
+Source code for the paper, "Developing BioNavi for Hybrid Retrosynthesis Planning", published in [JACS Au](https://pubs.acs.org/doi/10.1021/jacsau.4c00228)
 
 ![bionavi](Image/bionavi.png)
 
