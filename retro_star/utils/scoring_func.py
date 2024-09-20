@@ -21,6 +21,7 @@ def scoring(template, reactant, product):
     ref_idx = -1
     score_R = 0
     reactant = reactant.replace("[CoA]", "S").replace("[SAH]", "S")
+    product = product.replace("[CoA]", "S").replace("[SAH]", "S")
     reactant = Chem.MolToSmiles(Chem.MolFromSmiles(reactant), isomericSmiles=False)
     patt = AllChem.ReactionFromSmarts(template['smarts'])
     mols = patt.RunReactants([Chem.MolFromSmiles(product)])
