@@ -26,6 +26,12 @@ class MolTree:
         if target_mol in known_mols:
             logging.info('Target in starting molecules, remove it from starting molecules!')
             known_mols.remove(target_mol)
+        mol_t = Chem.MolFromSmiles(target_mol.replace("[CoA]", "S").replace("[SAH]", "S"))
+        carbons = [atom for atom in mol_t.GetAtoms() if atom.GetSymbol() == "C"]
+        if len(carbons) < 4:
+            self.known_mols = []
+        else:
+            self.known_mols = known_mols
         self.succ = target_mol in known_mols
         self.search_status = 0
         self.known_mols = known_mols
