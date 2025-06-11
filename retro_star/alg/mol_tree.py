@@ -34,7 +34,7 @@ class MolTree:
             self.known_mols = known_mols
         self.succ = target_mol in known_mols
         self.search_status = 0
-        self.known_mols = known_mols
+        #self.known_mols = known_mols
         self.root = self._add_mol_node(target_mol, None)
     def _add_mol_node(self, mol, parent):
         
